@@ -136,6 +136,10 @@ function askForProduct(products) {
     short: each.product_name,
   }));
 
+  if (choices.length === 0) {
+    throw(Error("Oh no! We're plum out of product!"));
+  }
+
   return inquirer.prompt({
     message: 'Which product would you like to buy?',
     type: 'list',
